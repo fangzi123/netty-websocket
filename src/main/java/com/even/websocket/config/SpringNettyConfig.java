@@ -5,6 +5,7 @@ import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.HandshakeData;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.annotation.SpringAnnotationScanner;
+import com.corundumstudio.socketio.store.MemoryStoreFactory;
 import com.corundumstudio.socketio.store.RedissonStoreFactory;
 import com.even.websocket.constant.WebSocketConstant;
 import org.redisson.Redisson;
@@ -22,16 +23,16 @@ public class SpringNettyConfig {
 
     @Value("${websocket.server.port}")
     private Integer port;
-    @Value("${websocket.server.nodes}")
-    private String nodes;
+/*    @Value("${websocket.server.nodes}")
+    private String nodes;*/
     @Bean
     public SocketIOServer server(Config config)
     {
         Configuration configuration = new Configuration();
         configuration.setHostname(host);
         configuration.setPort(port);
-        RedissonClient redissonClient = Redisson.create(config);
-        configuration.setStoreFactory(new RedissonStoreFactory(redissonClient));
+        //RedissonClient redissonClient = Redisson.create(config);
+        //configuration.setStoreFactory(new RedissonStoreFactory(redissonClient));
 
         configuration.setAuthorizationListener(new AuthorizationListener() {
             public boolean isAuthorized(HandshakeData data) {
@@ -48,9 +49,10 @@ public class SpringNettyConfig {
     @Bean
     public Config config(){
         Config config = new Config();
-        Stream.of(nodes.split(",")).forEach(node->{
-            config.useClusterServers().addNodeAddress(node);
-        });
+//        Stream.of(nodes.split(",")).forEach(node->{
+//            config.useClusterServers().addNodeAddress(node);
+//        });
+//        config.useSingleServer().setAddress(nodes);
         return config;
     }
 

@@ -3,10 +3,10 @@ server:
 websocket:
     server:
         host: 127.0.0.1
-        port: 8089
-        nodes: ****************,****************,****************,****************
-  profiles:
-    active: dev
+        port: 8081
+#        nodes: 192.168.5.22:6379
+#  profiles:
+#    active: dev
 
 
 
