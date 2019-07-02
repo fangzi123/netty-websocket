@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<h1>王五</h1><br/>
+<h1>李四</h1><br/>
 <div id="console" class="well"></div>
 <form class="well form-inline" onsubmit="return false;">
     <select id="target">
@@ -29,7 +29,7 @@
 </body>
 </html>
 <script>
-    var clientId = 'wangwu';
+    var clientId = 'lisi';
 
     var socket = io.connect('http://localhost:8081?clientid=' + clientId);
     socket.on('connect', function () {

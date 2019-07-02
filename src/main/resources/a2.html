@@ -15,11 +15,11 @@
 
 </head>
 <body>
-<h1>王五</h1><br/>
+<h1>张三</h1><br/>
 <div id="console" class="well"></div>
 <form class="well form-inline" onsubmit="return false;">
     <select id="target">
-        <option value="zhangsan">张三</option>
+        <option value="wangwu">王五</option>
         <option value="lisi">李四</option>
     </select>
     <input id="msg" class="input-xlarge" type="text" placeholder="Type something..."/>&nbsp;&nbsp;
@@ -29,7 +29,7 @@
 </body>
 </html>
 <script>
-    var clientId = 'wangwu';
+    var clientId = 'zhangsan';
 
     var socket = io.connect('http://localhost:8081?clientid=' + clientId);
     socket.on('connect', function () {
